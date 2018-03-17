@@ -15,9 +15,6 @@ void _init(){
 
 
 void unirPuntos(ptrNodo raiz){
-	cout <<"\nCOLOR(elija): BLACK, BLUE, GREEN, CYAN, RED, MAGENTA, BROWN, LIGHTGRAY, DARKGRAY,\n LIGHTBLUE, LIGHTGREEN, LIGHTCYAN, LIGHTRED, LIGHTMAGENTA, YELLOW, WHITE";
-	int n;
-	cin >> n;
 	int hs = BMP_SIZE >> 1;
 
 	while(raiz!=NULL){		
