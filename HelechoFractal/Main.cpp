@@ -18,20 +18,28 @@ ptrNodo computarFx(float, float, int);
 int main(){
 	/*Randomizar el generador de aleatorios*/
 	srand(time(0));
-	
+	/*Numero de iteraciones*/
 	int x, y, c, n;
 	cout <<"ITERACIONES?: ";	
-	cin >> c;
-	ptrNodo save = computarFx(0, 0, c);//Obtenemos el puntero de la ultimo punto generado	
+	cin >> c; 	
+	/*Ejecutar Funcion especifica y obtener los puntos a graficar xD;
+		---Obtenemos el puntero de la ultimo punto generado---*/
+	ptrNodo save = computarFx(0, 0, c);
+	/*Inicializar la interfaz Grafica*/
+	_init();
+	/*Graficar los puntos generados por la funcion*/
+	//graficaPuntos(save);
+	plotPoints(save);
 	
-	_init();//La interfaz Grafica
-	unirPuntos(save);
-	
-	free(save);//libera la memoria usada
+	/*Finalizar Graphics*/
+	finalizar();
+	/*libera la memoria usada*/
+	free(save);
 }
 float rnd() {
-        return static_cast<float>( rand() ) / static_cast<float>( RAND_MAX );
-    }
+    return static_cast<float>( rand() ) / static_cast<float>( RAND_MAX );
+}
+
 void getXY( float& x, float& y ) {
         float g, xl, yl;
         g = rnd();
@@ -50,11 +58,15 @@ void getXY( float& x, float& y ) {
 }
     
 ptrNodo computarFx(float x, float y, int iters){
-	insertar(&pila, x,y);
+	const int BMP_SIZE = 600;
+	/*Variables para el ajuste del fractal en la pantalla*/
+	int hs = BMP_SIZE >> 1;
+
+	insertar(&pila, int(x),int(y));
 	for ( int f = 1; f<iters; f++){
 		getXY(x,y);
-		//cout <<"("<<x<<","<<y<<")";
-		insertar(&pila, x,y);
+		/*Insertar con ajuste de acuerdo al algoritmo de Wikipedia*/
+		insertar(&pila, hs + int(x*55.f), BMP_SIZE- 15 - int(y*55.f));
 	}
 	return pila;
 }

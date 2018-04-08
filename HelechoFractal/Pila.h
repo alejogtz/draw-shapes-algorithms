@@ -13,7 +13,7 @@ struct nodo{
 
 typedef nodo *ptrNodo;
 
-void insertar(ptrNodo *p, float, float);
+void insertar(ptrNodo *p, int, int);
 
 punto pop(ptrNodo *p);
 

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void insertar(ptrNodo *cab, float px, float py){
+void insertar(ptrNodo *cab, int px, int py){
 	ptrNodo nuevo;
 	nuevo = new (struct nodo);
 	nuevo->dato.x = px;

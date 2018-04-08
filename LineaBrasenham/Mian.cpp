@@ -3,7 +3,7 @@
 #include <cstdio>
 #include <iostream>
 using namespace std;
-ptrNodo linea(int, int, int, int);
+ptrNodo pointsOfLine(int, int, int, int);
 
 int main(){
 	int x0,y0,x1,y1;
@@ -11,12 +11,12 @@ int main(){
 	cin >> y0;
 	cin >> x1;
 	cin >> y1;
-	ptrNodo test = linea(x0,y0,x1,y1);
+	ptrNodo test = pointsOfLine(x0,y0,x1,y1);
 	listarPila(test);
 	 return 0;
 }
 
-ptrNodo linea(int x0, int y0, int x1, int y1){
+ptrNodo pointsOfLine(int x0, int y0, int x1, int y1){
 	int inc = 1, aux, constP, dx, dy;
 	ptrNodo sPila = NULL;	
 	/*Calcular valor dx y dy signados*/
@@ -70,8 +70,7 @@ ptrNodo linea(int x0, int y0, int x1, int y1){
 			}
 			insertar(&sPila, x0, y0);
 		}
-	}
-	
+	}	
 	return sPila;
 }
 
